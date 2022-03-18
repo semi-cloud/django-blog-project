@@ -16,13 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-#1st router
-
+# 1st router
 urlpatterns = [
     path('blog/', include('blog.urls')),
     path('admin/', admin.site.urls),
 ]
 
-# 이 urls.py가 1차 라우터
+# blog_main 의 urls.py가 1차 라우터
 # include('blog.urls') 블로그 안에 있는 urls.py가 2차적 으로 라우팅
 # blog.urls 안에 있는 view.py가 실제 function(정적 렌더링)
