@@ -20,6 +20,7 @@ from django.urls import path, include
 urlpatterns = [
     path('blog/', include('blog.urls')),
     path('admin/', admin.site.urls),
+    path('', include('single_pages.urls')),
 ]
 
 # blog_main 의 urls.py가 1차 라우터
