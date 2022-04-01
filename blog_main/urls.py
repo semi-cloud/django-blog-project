@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 # 1st router
 urlpatterns = [
@@ -22,6 +24,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('single_pages.urls')),
 ]
+
+# 이미지 파일의 url <-> 실제 이미지 경로 폴더 매칭
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # blog_main 의 urls.py가 1차 라우터
 # include('blog.urls') 블로그 안에 있는 urls.py가 2차적 으로 라우팅
