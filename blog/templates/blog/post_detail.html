@@ -74,12 +74,18 @@
         <hr>
 
         <!-- Preview Image -->
-        <img class="img-fluid rounded" src="{% static 'images/1711ad8c67484311c8472b6853ac2049.jpg' %}" alt="">
-
+          {% if post.haed_image %}
+                  <img class="img-fluid rounded" src="{% static 'images/1711ad8c67484311c8472b6853ac2049.jpg' %}" alt="">
+          {% endif %}
         <hr>
 
         <!-- Post Content -->
         <p>{{ post.content }}</p>
+
+        {% if post.attached_file %}
+            <a href="{{ post.attached_file.url }}" type="button" class="btn btn-secondary" download>첨부 파일 다운로드</a>
+            {{ post.get_file_name }}  <!--함수 여도 () X>
+        {% endif %}
         <hr>
 
         <!-- Comments Form -->
