@@ -31,10 +31,20 @@
         <!-- Post Content -->
         <p>{{ post.content }}</p>
 
-        {% if post.attached_file %}
+        {% if post.attache_file %}
             <a href="{{ post.attached_file.url }}" type="button" class="btn btn-secondary" download>첨부 파일 다운로드</a>
-            {{ post.get_file_name }}  <!--함수 여도 () X>
+            {{ post.get_file_name }}  <!--함수 여도 () X>-->
         {% endif %}
+        <hr>
+           {% if p.tags.exists %}
+                <br />
+                <i class = "fas fa-tags"></i>
+            {% for tag in p.tags.iterator %}
+                    <a href = {{ tag.get_absolute_url }}>{{ tag }} </a>
+                {% endfor %}
+                <br />
+                <br />
+          {% endif %}
         <hr>
 
         <!-- Comments Form -->
