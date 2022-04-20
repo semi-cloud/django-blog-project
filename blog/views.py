@@ -122,4 +122,3 @@ def tag_page(request, slug):
         'blog/post_list.html',
         context
     )
-
