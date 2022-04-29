@@ -1,7 +1,6 @@
 from django.contrib import admin
 from markdownx.admin import MarkdownxModelAdmin
-
-from .models import Post, Category, Tag
+from .models import Post, Category, Tag, Comment
 
 admin.site.register(Post, MarkdownxModelAdmin)
 
@@ -14,3 +13,5 @@ class TagAdmin(admin.ModelAdmin):
     #기본 값 설정
     prepopulated_fields = {'slug': ('name',)}
 admin.site.register(Tag, TagAdmin)
+
+admin.site.register(Comment)
